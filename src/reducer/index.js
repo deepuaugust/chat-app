@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
-import userDetailsReducer from './userDetailsReducer';
-import repoDetailsReducer from './repoDetailsReducer';
+import userListReducer from './userListReducer';
 
 /**
  * @description - Core reducers combining all other reducers.
  */
 const coreReducer = combineReducers({
-  userDetailsReducer,
-  repoDetailsReducer,
+  userListReducer,
 });
 
 export default coreReducer;
