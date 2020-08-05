@@ -54,6 +54,9 @@ class UserList extends Component {
         messages: [],
       };
       dispatch(addUserChat(payload));
+      this.setState({
+        username: "",
+      })
     }
   };
 
@@ -65,6 +68,7 @@ class UserList extends Component {
     this.setState({
       username: e.target.value,
     });
+    if (e.key === "Enter") this.addNewChat();
   };
 
   /**
@@ -73,14 +77,17 @@ class UserList extends Component {
    */
   renderAddNewChatDiv = () => {
     const { classes } = this.props;
+    const { username } = this.state;
     return (
       <Fragment>
         <div className={classes.newDiv}>
           <input
             className={classes.inputDiv}
             type="text"
+            value={username}
             placeholder="Enter username"
             onChange={this.handleChange}
+            onKeyPress={this.handleChange}
           />
           <button
             className={classes.addBtn}
